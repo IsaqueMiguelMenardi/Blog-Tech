@@ -1,85 +1,343 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog Tech</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meu Blog Tech</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef0d5;
+      color: #111;
+    }
+
+    /* CABEÇALHO */
+    header {
+      height: 170px;
+      background: #b8d1cf;
+      text-align: center;
+      padding-top: 46px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #101878;
+      font-size: 30px;
+    }
+
+    header p {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* ÁREA DOS POSTS */
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 32px 88px 70px;
+    }
+
+    .post {
+      display: flex;
+      gap: 28px;
+      min-height: 235px;
+      margin-bottom: 32px;
+    }
+
+    .post-image {
+      width: 143px;
+      height: 143px;
+      flex-shrink: 0;
+      border: 2px solid #1725dc;
+      background: #eef0d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .post-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding-top: 18px;
+    }
+
+    .post h2 {
+      margin: 0 0 17px;
+      font-size: 24px;
+      color: #092f2b;
+    }
+
+    .post h3 {
+      margin: 0 0 18px;
+      font-size: 17px;
+      color: #092f2b;
+    }
+
+    .author {
+      font-weight: bold;
+      margin-bottom: 17px;
+      color: #092f2b;
+    }
+
+    .post p {
+      font-size: 17px;
+      margin: 0 0 15px;
+      line-height: 1.35;
+    }
+
+    /* BOTÕES */
+    .reactions {
+      display: flex;
+      gap: 7px;
+      margin-top: 16px;
+    }
+
+    .reaction-btn {
+      border: 1px solid #888;
+      background: #eee;
+      padding: 2px 7px;
+      font-size: 15px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: 0.15s;
+    }
+
+    .reaction-btn:hover {
+      background: #ddd;
+      transform: scale(1.05);
+    }
+
+    .reaction-btn.active {
+      background: #fff2a8;
+      border-color: #777;
+    }
+
+    /* RODAPÉ */
+    footer {
+      height: 55px;
+      background: #b8d1cf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* CELULAR */
+    @media (max-width: 700px) {
+      header {
+        height: auto;
+        padding: 30px 20px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      main {
+        padding: 25px 20px 50px;
+      }
+
+      .post {
+        gap: 18px;
+      }
+
+      .post-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .post h2 {
+        font-size: 20px;
+      }
+
+      .post p {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
     <h1>Meu Blog Tech</h1>
     <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-</header>
+  </header>
 
+  <main>
 
-<main>
+    <!-- PRIMEIRO POST -->
+    <article class="post">
 
-<section class="post">
-    <img src="imagens/tecnologia.jpg">
+      <div class="post-image">
+        <!-- Você pode trocar pela sua imagem -->
+        <img src="https://placehold.co/143x143/eef0d5/1725dc?text=Tech"
+             alt="Imagem do primeiro post">
+      </div>
 
-    <div>
+      <div class="post-content">
+
         <h2>Meu primeiro post</h2>
 
-        <h3>Por: VIVIANE</h3>
-
-        <p>Boas vindas ao meu novo blog!</p>
+        <div class="author">
+          Por: ISАQUE MIGUEL
+        </div>
 
         <p>
-        Aqui vou compartilhar dicas de programação e curiosidades
-        da área de tecnologia
+          Boas vindas ao meu novo blog!
         </p>
 
-        <button>👍0</button>
-        <button>👎0</button>
-    </div>
+        <p>
+          Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia
+        </p>
 
-</section>
+        <div class="reactions">
+
+          <button class="reaction-btn"
+                  onclick="curtir(this, 'post1', '👍')">
+            👍 <span>0</span>
+          </button>
+
+          <button class="reaction-btn"
+                  onclick="curtir(this, 'post1', '❤️')">
+            ❤️ <span>0</span>
+          </button>
+
+        </div>
+
+      </div>
+    </article>
 
 
+    <!-- SEGUNDO POST -->
+    <article class="post">
 
-<section class="post">
+      <div class="post-image">
+        <img src="https://placehold.co/143x143/eef0d5/1725dc?text=Fake+News"
+             alt="Imagem sobre Fake News">
+      </div>
 
-    <img src="imagens/fake-news.jpg">
-
-    <div>
+      <div class="post-content">
 
         <h2>Fake News</h2>
 
         <h3>Dicas para Identificar Notícias Falsas</h3>
 
         <p>
-        Não leia só o título: Títulos chamativos costumam ser apelativos
-        e não correspondem ao texto real.
+          Não leia só o título: Títulos chamativos costumam ser apelativos
+          e não correspondem ao texto real.
         </p>
 
         <p>
-        Confira a fonte: Veja se o autor e o veículo de comunicação
-        existem e são respeitados.
+          Confira a fonte: Veja se o autor e o veículo de comunicação
+          existem e são respeitados.
         </p>
 
         <p>
-        Cheque a data: Conteúdos antigos costumam ser republicados
-        fora de contexto para parecerem atuais.
+          Cheque a data: Conteúdos antigos costumam ser republicados
+          fora de contexto para parecerem atuais.
         </p>
 
-        <button>❤️0</button>
-        <button>👍0</button>
+        <div class="reactions">
 
-    </div>
+          <button class="reaction-btn"
+                  onclick="curtir(this, 'post2', '❤️')">
+            ❤️ <span>0</span>
+          </button>
 
-</section>
+          <button class="reaction-btn"
+                  onclick="curtir(this, 'post2', '👍')">
+            👍 <span>0</span>
+          </button>
+
+        </div>
+
+      </div>
+    </article>
+
+  </main>
 
 
-</main>
+  <footer>
+    © 2026 Meu Blog Tech - Página web: do zero à primeira interação
+  </footer>
 
 
-<footer>
-© 2026 Meu Blog Tech - Página web: do zero à primeira interação
-</footer>
+  <script>
+    function curtir(botao, post, tipo) {
 
+      const chave = post + "-" + tipo;
+
+      let quantidade = Number(localStorage.getItem(chave)) || 0;
+
+      // Impede que a mesma pessoa fique clicando infinitamente
+      const clicado = localStorage.getItem(chave + "-clicado");
+
+      if (clicado === "true") {
+        quantidade--;
+        localStorage.setItem(chave, quantidade);
+        localStorage.removeItem(chave + "-clicado");
+
+        botao.classList.remove("active");
+        botao.querySelector("span").textContent = quantidade;
+        return;
+      }
+
+      quantidade++;
+
+      localStorage.setItem(chave, quantidade);
+      localStorage.setItem(chave + "-clicado", "true");
+
+      botao.classList.add("active");
+      botao.querySelector("span").textContent = quantidade;
+    }
+
+
+    // Recupera as curtidas quando a página é aberta novamente
+    window.addEventListener("load", function () {
+
+      document.querySelectorAll(".reaction-btn").forEach(function(botao) {
+
+        const onclick = botao.getAttribute("onclick");
+
+        const resultado =
+          onclick.match(/curtir\(this,\s*'([^']+)',\s*'([^']+)'\)/);
+
+        if (!resultado) return;
+
+        const post = resultado[1];
+        const tipo = resultado[2];
+
+        const chave = post + "-" + tipo;
+
+        const quantidade =
+          Number(localStorage.getItem(chave)) || 0;
+
+        const clicado =
+          localStorage.getItem(chave + "-clicado");
+
+        botao.querySelector("span").textContent = quantidade;
+
+        if (clicado === "true") {
+          botao.classList.add("active");
+        }
+
+      });
+
+    });
+  </script>
 
 </body>
 </html>
